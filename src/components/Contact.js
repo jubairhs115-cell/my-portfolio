@@ -175,7 +175,7 @@ export default function Contact() {
                     WhatsApp
                   </h3>
                   <p className="text-xs text-zinc-400">
-                    Let's connect on WhatsApp
+                    Let&apos;s connect on WhatsApp
                   </p>
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-[11px] text-zinc-400 mt-2">
-                  * Opens your device's email client with a pre-filled
+                  * Opens your device&apos;s email client with a pre-filled
                   message. You must send the email from your email application.
                 </p>
               </form>

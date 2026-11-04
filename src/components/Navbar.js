@@ -117,7 +117,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#111827] border-b border-white/10 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden bg-[#111827] border-b border-white/10 shadow-2xl">
           <div className="container-custom py-4 flex flex-col gap-1.5">
             {navLinks.map((link) => {
               const sectionId = link.href.replace("/#", "");

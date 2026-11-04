@@ -116,7 +116,7 @@ export default function ProjectDetails({ project }) {
                 fill
                 priority
                 sizes="(max-width: 1200px) 100vw, 1200px"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           ) : (
@@ -173,13 +173,13 @@ export default function ProjectDetails({ project }) {
                       key={idx}
                       className="group rounded-xl overflow-hidden bg-[#0A0A0A] border border-white/10 hover:border-[#C2F800]/40 transition-all duration-300 shadow-md"
                     >
-                      <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] bg-black">
+                      <div className="relative w-full aspect-video bg-[#0A0A0A]">
                         <Image
                           src={shot.src}
                           alt={shot.title || `Screenshot ${idx + 1}`}
                           fill
                           sizes="(max-width: 1024px) 100vw, 750px"
-                          className="object-contain object-center"
+                          className="object-cover object-top"
                         />
                       </div>
                       <div className="p-4 border-t border-white/5 bg-[#111827]/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">

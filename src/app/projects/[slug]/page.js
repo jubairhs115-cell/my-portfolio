@@ -1,10 +1,16 @@
+
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import { getProjectBySlug, getAllProjectSlugs, projectsData } from "@/data/projects";
+import {
+  getProjectBySlug,
+  getAllProjectSlugs,
+} from "@/data/projects";
+
 import ProjectDetails from "@/components/ProjectDetails";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   const slugs = getAllProjectSlugs();
   return slugs.map((slug) => ({ slug }));
 }
@@ -26,7 +32,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function ProjectPage({ params }) {
+async function ProjectContent({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
@@ -34,14 +40,21 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
+  return <ProjectDetails project={project} />;
+}
+
+export default function ProjectPage({ params }) {
   return (
     <>
       <Navbar />
+
       <main>
-        <ProjectDetails project={project} />
+        <Suspense fallback={<div>Loading project...</div>}>
+          <ProjectContent params={params} />
+        </Suspense>
       </main>
+
       <Footer />
     </>
   );
 }
-
